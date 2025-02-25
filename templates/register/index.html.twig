@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign Up{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('CSS/register.css')}}">
+{% endblock%}
+
+{% block body %}
+
+<div class="image-container">
+    <img src="{{ asset('images/logimage3.jpg') }}" alt="image" >
+</div>
+<div class="form-container"> 
+   <h1>Sign Up</h1>
+    <form method="post" action="{{path('app_register')}}" enctype="multipart/form-data">
+        <input type="text" id="name" name="firstName" placeholder="First name" required>
+        <input type="text" id="name" name="familyName" placeholder="Family name" required>
+        <input type="email" id="email" name="email" placeholder="Email address" required>
+        <input type="password" id="password" name="password" placeholder="Password"required>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required>
+        <input type="file" id="image" name="image" placeholder="Image (optional)" >
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+
+{% endblock %}

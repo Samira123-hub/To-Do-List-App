@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update Task{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('CSS/update_task.css')}}">
+{% endblock%}
+
+{% block body %}
+
+<div class="image-container">
+    <img src="{{ asset('images/taskimage1.jpg') }}" alt="image" >
+</div>
+<div class="form-container"> 
+   <h1>Update Task</h1>
+    <form method="post" action="{{path('task_update',{'id':task.id})}}">
+        <input type="text" id="title" name="title" value="{{task.title}}" required>
+        <textarea id="description" name="description" >{{ task.description }}</textarea>
+        <select id="priority" name="priority" required>
+         <option value="1" {% if task.priority == 1 %}selected{% endif %}>Top priority</option>
+          <option value="2" {% if task.priority == 2 %}selected{% endif %}>Medium priority</option>
+           <option value="3" {% if task.priority == 3 %}selected{% endif %}>Bottom priority</option>
+        </select>
+        <input type="text" id="duration" name="duration" value="{{task.duration}}">
+        <button type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}
+

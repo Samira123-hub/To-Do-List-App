@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasks done{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/finishedTasks.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+         <a href="{{ path('app_homepage')}}">
+            <img src="{{ asset('images/homeIcon.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+         </a>
+         <h1>Tasks done</h1>
+    </header>
+    <main>
+            <div class="main-container">
+                <div class="tasks-container">
+                   
+                    {% for task in tasks %}
+                        {% if task.isCompleted == true %}
+
+                            <div class="task-container" data-task-id="{{ task.id }}">
+                                    <h3>{{task.title}}</h3>
+                                    <b>{{task.duration}}</b>
+                                    <p>{{task.description}}</p>
+                                    <button id="remove {{task.id}}" class="remove">Remove</button>
+                                   
+                            </div>
+                        {% endif %}
+                    {% endfor %}  
+                </div>
+            </div>    
+    </main>
+    {% block javascripts %}
+        <script src="{{ asset('JS/doneRemoveTaskScript.js') }}"></script>
+    {% endblock %}
+    
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HomePage{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/homepage.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="sidebar">
+        <!-- Profile Image -->
+        <div class="profile-container">
+            <a href="{{ path('app_profil') }}">
+            {% if user.image %}
+                <img src="{{ asset('uploads/profiles/' ~ user.image) }}" alt="Profile Picture" class="profile-img">
+            {% else %}
+                <img src="{{ asset('images/emptyprofilimage.png') }}" alt="Profile Picture" class="profile-img">
+            {% endif %}
+            </a>
+            <p><b>{{user.username}}</b></p>
+        </div>
+
+        <ul class="sidebar-links">
+            <li><a href="{{ path('app_add_task') }}">Add Task</a></li>
+            <li><a href="{{ path('app_my_tasks') }}">My Tasks</a></li>
+            <li><a href="{{ path('app_finished_tasks') }}">Tasks Done</a></li>
+            <li><a href="{{ path('app_logout') }}">Log out</a></li>
+
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="quote-container">
+            <h2>Quote of the Day</h2>
+            <p>{{quote}}</p>
+        </div>
+    </div>
+{% endblock %}

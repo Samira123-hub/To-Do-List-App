@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Tasks{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('CSS/mytasks.css') }}">
+{% endblock %}
+
+{% block body %}
+    <header>
+         <a href="{{ path('app_homepage')}}">
+            <img src="{{ asset('images/homeIcon.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+         </a>
+         <a href="{{ path('app_my_tasks')}}">
+            <img src="{{ asset('images/liste-de-controle.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+         </a>
+         <a href="{{ path('app_finished_tasks')}}">
+            <img src="{{ asset('images/fait.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+         </a>
+         <a href="{{ path('app_add_task')}}">
+            <img src="{{ asset('images/plus.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+         </a>
+         <a href="{{ path('app_logout')}}">
+            <img src="{{ asset('images/deconnexion-alt.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+         </a>
+         <h1>My Tasks</h1>
+    </header>
+    <main>
+        <div class="main-container">
+            <h2>Top priority</h2>
+            <div class="tasks-container">
+                {% for task in tasks %}
+                    {% if task.priority == 1 and not task.isCompleted %}
+                        <div class="task-container" data-task-id="{{ task.id }}">
+                            <h3>{{ task.title }}</h3>
+                            <b>{{ task.duration }}</b>
+                            <p>{{ task.description }}</p>
+                            <button id="done{{ task.id }}" class="done">Done</button>
+                            <button id="remove{{ task.id }}" class="remove">Remove</button>
+                            <a href="{{ path('task_update', {'id': task.id}) }}">
+                                <img src="{{ asset('images/crayon.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="main-container">
+            <h2>Medium priority</h2>
+            <div class="tasks-container">
+                {% for task in tasks %}
+                    {% if task.priority == 2 and not task.isCompleted %}
+                        <div class="task-container" data-task-id="{{ task.id }}">
+                            <h3>{{ task.title }}</h3>
+                            <b>{{ task.duration }}</b>
+                            <p>{{ task.description }}</p>
+                            <button id="done{{ task.id }}" class="done">Done</button>
+                            <button id="remove{{ task.id }}" class="remove">Remove</button>
+                            <a href="{{ path('task_update', {'id': task.id}) }}">
+                                <img src="{{ asset('images/crayon.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="main-container">
+            <h2>Bottom priority</h2>
+            <div class="tasks-container">
+                {% for task in tasks %}
+                    {% if task.priority == 3 and not task.isCompleted %}
+                        <div class="task-container" data-task-id="{{ task.id }}">
+                            <h3>{{ task.title }}</h3>
+                            <b>{{ task.duration }}</b>
+                            <p>{{ task.description }}</p>
+                            <button id="done{{ task.id }}" class="done">Done</button>
+                            <button id="remove{{ task.id }}" class="remove">Remove</button>
+                            <a href="{{ path('task_update', {'id': task.id}) }}">
+                                <img src="{{ asset('images/crayon.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    {% block javascripts %}
+    <script src="{{ asset('JS/doneRemoveTaskScript.js') }}"></script>
+    {% endblock %}
+{% endblock %}

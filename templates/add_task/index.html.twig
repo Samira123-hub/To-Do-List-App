@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add new Task{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('CSS/add_task.css')}}">
+{% endblock%}
+
+{% block body %}
+<div class="image-container">
+    <img src="{{ asset('images/taskimage1.jpg') }}" alt="image" >
+</div>
+
+<div class="form-container"> 
+   <h1>New Task</h1>
+    <form method="post" action="{{path('app_add_task')}}" id="taskForm">
+        <input type="text" id="title" name="title" placeholder="Enter a title for the task" required>
+        <textarea id="description" name="description" placeholder="Description" ></textarea>
+        <select id="priority" name="priority" required>
+         <option value="1" selected>Top priority</option>
+         <option value="2">Medium priority</option>
+         <option value="3">Bottom priority</option>
+        </select>
+        <input type="text" id="duration" name="duration" placeholder="Enter the estimated duration of the task">
+        <button type="submit" id="submitButton">Add</button>
+    </form>
+</div>
+{% block javascripts %}
+    <script src="{{ asset('js/resetFields.js')}}"></script>
+{% endblock %}
+{% endblock %}
+

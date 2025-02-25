@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update your personal informations{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('CSS/profil.css')}}">
+{% endblock%}
+
+{% block body %}
+<div class="image-container">
+    <img src="{{ asset('images/updateprofilimage.jpg') }}" alt="image" >
+</div>
+
+<div class="form-container"> 
+   <h1>Update your personal informations</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Save</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

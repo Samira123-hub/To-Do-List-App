@@ -1,0 +1,136 @@
+/* Sidebar styling */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #909cfc;
+    color: black;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.profile-container {
+    margin-bottom: 30px;
+    background-color: #909cfc;
+
+}
+.profile-container p{
+    margin-top: 15px;
+
+    background-color: #909cfc;
+
+    
+}
+.profile-container p b{
+    background-color: #909cfc;
+    color:white;
+    font-size: large;
+}
+.profile-container a{
+    background-color: #909cfc;
+}
+
+.profile-img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    border: 1px solid black; 
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border:2px solid white;
+
+}
+
+.profile-img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Sidebar links */
+.sidebar-links {
+    list-style-type: none;
+    padding-left: 0;
+    background-color: #909cfc;
+
+}
+
+.sidebar-links li {
+    margin: 15px 0;
+    background-color: #909cfc;
+    font-size: 20px;
+    
+
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: white;
+    font-style: bold;
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: #909cfc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+}
+
+.sidebar-links a:hover {
+    background-color: white; 
+    color:#909cfc;
+}
+
+/* Content styling */
+.content {
+    margin-left: 250px; /* Make space for the sidebar */
+    padding: 0px;
+    width: calc(100% - 250px);
+    font-size: 20px;
+    height: 100vh; /* Ensures the content area takes the full height */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),  url('/images/baseimage1.jpg') no-repeat center center/cover; */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: black; 
+    text-align: center; 
+    opacity: 1;
+}
+/* Styles for the quote container */
+.quote-container {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.quote-container h2 {
+    margin-bottom: 20px;
+    color: #909cfc;
+}
+
+.quote-container p {
+    font-size: 18px;
+    color: #555;
+    font-style: italic;
+}
+
+
+
