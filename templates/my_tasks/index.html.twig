@@ -7,24 +7,27 @@
 {% endblock %}
 
 {% block body %}
-    <header>
-         <a href="{{ path('app_homepage')}}">
-            <img src="{{ asset('images/homeIcon.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
-         </a>
-         <a href="{{ path('app_my_tasks')}}">
-            <img src="{{ asset('images/liste-de-controle.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
-         </a>
-         <a href="{{ path('app_finished_tasks')}}">
-            <img src="{{ asset('images/fait.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
-         </a>
-         <a href="{{ path('app_add_task')}}">
-            <img src="{{ asset('images/plus.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
-         </a>
-         <a href="{{ path('app_logout')}}">
-            <img src="{{ asset('images/deconnexion-alt.png') }}" alt="edit task" height="15px" width="15px" class="edit-icon">
-         </a>
-         <h1>My Tasks</h1>
-    </header>
+    <div class="sidebar">
+        <!-- Profile Image -->
+        <div class="profile-container">
+            <a href="{{ path('app_profil') }}">
+            {% if user.image %}
+                <img src="{{ asset('uploads/profiles/' ~ user.image) }}" alt="Profile Picture" class="profile-img">
+            {% else %}
+                <img src="{{ asset('images/emptyprofilimage.png') }}" alt="Profile Picture" class="profile-img">
+            {% endif %}
+            </a>
+            <p><b>{{user.username}}</b></p>
+        </div>
+
+        <ul class="sidebar-links">
+            <li><a href="{{ path('app_add_task') }}">Add Task</a></li>
+            <li><a href="{{ path('app_my_tasks') }}">My Tasks</a></li>
+            <li><a href="{{ path('app_finished_tasks') }}">Tasks Done</a></li>
+            <li><a href="{{ path('app_logout') }}">Log out</a></li>
+
+        </ul>
+    </div>
     <main>
         <div class="main-container">
             <h2>Top priority</h2>

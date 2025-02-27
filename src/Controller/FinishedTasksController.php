@@ -21,6 +21,7 @@ class FinishedTasksController extends AbstractController
         $tasks = $entityManager->getRepository(Task::class)->findBy(['user'=>$user,'isCompleted'=>true]);
         return $this->render('finished_tasks/index.html.twig', [
             'tasks' => $tasks,
+            'user' => $user,
         ]);
     
     }

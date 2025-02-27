@@ -6,47 +6,128 @@ body {
     padding: 0;
 }
 
-/* Header styles */
-header {
-    text-align: center;
-    padding: 20px;
-    background-color: #909cfc;
-    color: white;
-    height:80px;
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background-color: #fff;
 }
 
-header h1 {
-    margin-left: auto;
-    margin-right:auto ;
-    flex: 1;
+.sidebar {
+    width: 250px;
+    background-color: #909cfc;
+    color: black;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
     text-align: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-header a {
-    display: flex;
+
+.profile-container {
+    margin-bottom: 30px;
+    background-color: #909cfc;
+
+}
+.profile-container p{
+    margin-top: 15px;
+
+    background-color: #909cfc;
+
+    
+}
+.profile-container p b{
+    background-color: #909cfc;
+    color:white;
+    font-size: large;
+}
+.profile-container a{
+    background-color: #909cfc;
+}
+
+.profile-img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    border: 1px solid black; 
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border:2px solid white;
+
+}
+
+.profile-img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Sidebar links */
+.sidebar-links {
+    list-style-type: none;
+    padding-left: 0;
+    background-color: #909cfc;
+
+}
+
+.sidebar-links li {
+    margin: 15px 0;
+    background-color: #909cfc;
+    font-size: 20px;
+    
+
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: white;
+    font-style: bold;
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: #909cfc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+}
+
+.sidebar-links a:hover {
+    background-color: white; 
+    color:#909cfc;
+}
+.sidebar-links a:active {
+    background-color: white; 
+    color:#909cfc;
+}
+
+/* Content styling */
+main {
+    margin-left: 250px; /* Make space for the sidebar */
+    padding: 0px;
+    width: calc(100% - 250px);
+    font-size: 20px;
+    height: 100vh; /* Ensures the content area takes the full height */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),  url('/images/baseimage1.jpg') no-repeat center center/cover; */
+    display: flex; 
     align-items: center;
-}
-header a img{
-    background-color: white;
-    border-radius: 50%;
-    height:50px;
-    width: 50px;
-}
-main{
-    margin-top: 150px;
+    flex-direction: column; 
+    justify-content: center; 
+    color: black; 
+    text-align: center; 
+    opacity: 1;
 }
 
 /* Main container styles */
 .main-container {
-    margin: 20px auto;
+    margin: 20px 20px;
     padding: 20px;
-    max-width: 800px;
+    width: 90%;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -56,7 +137,8 @@ main{
 .tasks-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    width: 100%;
 }
 
 .task-container {
@@ -66,23 +148,29 @@ main{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-start;
 }
 
 .task-container h3 {
     margin: 0;
     font-size: 18px;
     color: #333;
+    background-color: #f9f9f9;
+
 }
 
 .task-container p {
     margin: 5px 0;
     font-size: 14px;
     color: #666;
+    background-color: #f9f9f9;
+
 }
 
 .task-container b {
     color: #555;
+    background-color: #f9f9f9;
+
 }
 
 .edit-icon {

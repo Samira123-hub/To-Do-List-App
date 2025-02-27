@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Repository\UserRepository;
 
 
 class MyTasksController extends AbstractController
@@ -23,6 +24,7 @@ class MyTasksController extends AbstractController
         $tasks = $entityManager->getRepository(Task::class)->findBy(['user' => $user]);
         return $this->render('my_tasks/index.html.twig', [
             'tasks' => $tasks,
+            'user' => $user,
         ]);
     }
 
@@ -55,6 +57,9 @@ class MyTasksController extends AbstractController
     #[Route('/tasks/update/{id<\d+>}', name: 'task_update', methods: ["GET", "POST"])]
     public function updateTask(int $id, Request $request, EntityManagerInterface $entityManager): Response
     {
+       
+
+
         $task = $entityManager->getRepository(Task::class)->find($id);
         if (!$task) {
             throw $this->createNotFoundException('The task does not exist');
@@ -78,6 +83,7 @@ class MyTasksController extends AbstractController
 
         return $this->render('update_task/index.html.twig', [
             'task' => $task,
+            'user' => $user,
         ]);
     }
 }
